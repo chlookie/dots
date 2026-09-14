@@ -73,7 +73,7 @@
 	"debug.onTaskErrors": "abort",
 	"debug.showInStatusBar": "always",
 	"debug.toolBarLocation": "docked",
-	"diffEditor.ignoreTrimWhitespace": false,
+	"diffEditor.ignoreTrimWhitespace": true,
 	"direnv.restart.automatic": true,
 	"direnv.watchForChanges": false,
 	"editor.acceptSuggestionOnEnter": "off",
@@ -1295,4 +1295,8 @@
 	"window.autoDetectColorScheme": true,
 	"workbench.preferredDarkColorTheme": "Catppuccin Frappé",
 	"workbench.preferredLightColorTheme": "Catppuccin Latte",
+	"[markdown]": {
+		"diffEditor.ignoreTrimWhitespace": false,
+	},
+	"diffEditor.renderSideBySide": true,
 }
