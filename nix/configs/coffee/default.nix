@@ -42,8 +42,10 @@
     guitarix # A virtual guitar amplifier for use with Linux.
     qmk
     picard
-    audacity
     gnome-obfuscate
+
+    # audacity
+    pkgs.unstable.audacity_4
   ];
 
   # Won't start past login screen
