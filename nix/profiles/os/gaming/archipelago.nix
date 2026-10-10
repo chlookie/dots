@@ -1,23 +1,40 @@
-{ pkgs, profiles, ... }:
+{
+  pkgs,
+  profiles,
+  lib2,
+  ...
+}:
 
+let
+  inherit (lib2.nixos) mkHomeSymlink;
+
+  dir = "/stuff/games/archipelago";
+in
 {
   imports = [
     profiles.os.gaming.base
     profiles.os.gaming.emulation
+
+    (mkHomeSymlink {
+      xdgDir = "data";
+      target = "Archipelago";
+      destination = "${dir}/archipelago";
+    })
   ];
 
   environment.systemPackages =
     let
       poptracker = pkgs.symlinkJoin {
-        name = "poptracker";
+        name = "poptracker-wrapped";
         paths = [ pkgs.poptracker ];
         nativeBuildInputs = [ pkgs.makeWrapper ];
         postBuild = ''
           wrapProgram $out/bin/poptracker \
-            --set SDL_VIDEODRIVER wayland \
-            --set QT_SCALE_FACTOR 2 \
-            --set GDK_SCALE 2
+            --chdir ${dir}/poptracker \
         '';
+        # --set SDL_VIDEODRIVER wayland \
+        # --set QT_SCALE_FACTOR 2 \
+        # --set GDK_SCALE 2
       };
     in
     [
