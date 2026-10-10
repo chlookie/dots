@@ -13,7 +13,10 @@
         paths = [ pkgs.poptracker ];
         nativeBuildInputs = [ pkgs.makeWrapper ];
         postBuild = ''
-          wrapProgram $out/bin/poptracker --set SDL_VIDEODRIVER wayland
+          wrapProgram $out/bin/poptracker \
+            --set SDL_VIDEODRIVER wayland \
+            --set QT_SCALE_FACTOR 2 \
+            --set GDK_SCALE 2
         '';
       };
     in
