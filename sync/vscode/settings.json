@@ -1300,5 +1300,6 @@
 		"diffEditor.ignoreTrimWhitespace": false,
 		"editor.formatOnSave": false
 	},
-	"diffEditor.renderSideBySide": true,
+	"diffEditor.renderSideBySide": false,
+	"breadcrumbs.enabled": false,
 }

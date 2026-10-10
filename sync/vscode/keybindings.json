@@ -655,5 +655,14 @@
         "key": "ctrl+i",
         "command": "-workbench.action.chat.stopListeningAndSubmit",
         "when": "inChatInput && voiceChatInProgress && scopedVoiceChatInProgress == 'editor' || inChatInput && voiceChatInProgress && scopedVoiceChatInProgress == 'inline' || inChatInput && voiceChatInProgress && scopedVoiceChatInProgress == 'quick' || inChatInput && voiceChatInProgress && scopedVoiceChatInProgress == 'view' || inlineChatFocused && voiceChatInProgress && scopedVoiceChatInProgress == 'editor' || inlineChatFocused && voiceChatInProgress && scopedVoiceChatInProgress == 'inline' || inlineChatFocused && voiceChatInProgress && scopedVoiceChatInProgress == 'quick' || inlineChatFocused && voiceChatInProgress && scopedVoiceChatInProgress == 'view'"
+    },
+    {
+        "key": "ctrl+shift+enter",
+        "command": "-lean4.toggleInfoview",
+        "when": "lean4.isLeanFeatureSetActive"
+    },
+    {
+        "key": "ctrl+shift+alt+o",
+        "command": "workbench.action.gotoLine"
     }
 ]
