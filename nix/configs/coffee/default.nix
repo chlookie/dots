@@ -38,13 +38,13 @@
     profiles.os.scripts.bootWindows
   ];
 
-  environment.systemPackages = with pkgs; [
-    guitarix # A virtual guitar amplifier for use with Linux.
-    qmk
-    picard
-    gnome-obfuscate
+  environment.systemPackages = [
+    pkgs.guitarix # A virtual guitar amplifier for use with Linux.
+    pkgs.qmk
+    pkgs.picard
+    pkgs.gnome-obfuscate
 
-    # audacity
+    # pkgs.audacity
     pkgs.unstable.audacity_4
   ];
 

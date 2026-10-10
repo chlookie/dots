@@ -29,7 +29,6 @@ in
 
     # Emulators
     pkgs.melonDS # Nintendo DS
-    pkgs.snes9x # SNES
     pkgs.snes9x-gtk # SNES
 
     # Emulators (unused)
