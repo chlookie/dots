@@ -1,6 +1,13 @@
-{ pkgs, lib2, ... }:
+{
+  pkgs,
+  lib2,
+  profiles,
+  ...
+}:
 {
   imports = [
+    profiles.os.gaming.base
+
     (lib2.nixos.mkSyncedPath {
       target = "~/.local/share/PrismLauncher/prismlauncher.cfg";
       syncName = "prismlauncher/settings.cfg";

@@ -23,8 +23,10 @@
     profiles.os.base
     profiles.os.pc
     profiles.os.wifi
+
     profiles.os.gaming.base
     profiles.os.gaming.emulation
+    profiles.os.gaming.emulation2
     profiles.os.gaming.minecraft
     profiles.os.gaming.archipelago
 
