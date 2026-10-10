@@ -26,6 +26,7 @@
     profiles.os.gaming.base
     profiles.os.gaming.emulation
     profiles.os.gaming.minecraft
+    profiles.os.gaming.archipelago
 
     profiles.os.hardware.gpu.amd
 
