@@ -9,6 +9,7 @@
   pkgs,
   profiles,
   users,
+  user,
   ...
 }@args:
 
@@ -107,6 +108,18 @@ in
     # Use all available cores for building (0 is already the default)
     cores = 0;
   };
+
+  # Add github.com token to avoid API rate limits
+  age.secrets."nix/nix-access-tokens" = {
+    # Perms required because the API calls run as user, not as the daemon
+    owner = user;
+    group = "users";
+    mode = "0440";
+  };
+
+  nix.extraOptions = ''
+    !include ${config.age.secrets."nix/nix-access-tokens".path}
+  '';
 
   /*
     --------------------------------------------------------------------------------
