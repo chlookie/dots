@@ -18,7 +18,7 @@ in
     (mkHomeSymlink {
       xdgDir = "data";
       target = "Archipelago";
-      destination = "${dir}/archipelago";
+      destination = "${dir}/archipelago-launcher";
     })
   ];
 
