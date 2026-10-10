@@ -21,18 +21,18 @@ let
     '';
   };
 
-  poptracker = pkgs.symlinkJoin {
-    name = "poptracker-wrapped";
-    paths = [ pkgs.poptracker ];
-    nativeBuildInputs = [ pkgs.makeWrapper ];
-    postBuild = ''
-      wrapProgram $out/bin/poptracker \
-        --chdir ${dir}/poptracker \
-    '';
-    # --set SDL_VIDEODRIVER wayland \
-    # --set QT_SCALE_FACTOR 2 \
-    # --set GDK_SCALE 2
-  };
+  # poptracker = pkgs.symlinkJoin {
+  #   name = "poptracker-wrapped";
+  #   paths = [ pkgs.poptracker ];
+  #   nativeBuildInputs = [ pkgs.makeWrapper ];
+  #   postBuild = ''
+  #     wrapProgram $out/bin/poptracker \
+  #       --chdir ${dir}/poptracker \
+  #   '';
+  #   # --set SDL_VIDEODRIVER wayland \
+  #   # --set QT_SCALE_FACTOR 2 \
+  #   # --set GDK_SCALE 2
+  # };
 in
 {
   imports = [
@@ -47,7 +47,7 @@ in
   ];
 
   environment.systemPackages = [
-    poptracker # Universal tracker
+    pkgs.poptracker # Universal tracker
     archipelago # The archipelago launcher
 
     pkgs.olympus # Cross-platform GUI Everest installer and Celeste mod manager.
