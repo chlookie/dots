@@ -47,7 +47,7 @@ in
   ];
 
   environment.systemPackages = [
-    pkgs.poptracker # Universal tracker
+    pkgs.unstable.poptracker # Cool tracker
     archipelago # The archipelago launcher
 
     pkgs.olympus # Cross-platform GUI Everest installer and Celeste mod manager.
