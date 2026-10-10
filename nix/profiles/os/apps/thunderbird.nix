@@ -5,6 +5,14 @@
     thunderbird
   ];
 
+  services.flatpak = {
+    enable = true;
+
+    packages = [
+      # "eu.betterbird.Betterbird"
+    ];
+  };
+
   # Setup syncing of the settings over syncting
   # Will not do anything unless a client specifically sets the `devices` field for the "Thunderbird" folder
 
