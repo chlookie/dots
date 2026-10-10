@@ -12,7 +12,7 @@ let
 
   archipelago = pkgs.symlinkJoin {
     name = "archipelago-scaled";
-    paths = [ pkgs.archipelago ];
+    paths = [ pkgs.unstable.archipelago ];
     nativeBuildInputs = [ pkgs.makeWrapper ];
     postBuild = ''
       for f in $out/bin/*; do
