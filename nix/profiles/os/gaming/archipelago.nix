@@ -11,7 +11,7 @@ let
   dir = "/stuff/games/archipelago";
 
   archipelago = pkgs.symlinkJoin {
-    name = "archipelago-scaled";
+    name = "archipelago-wrapped";
     paths = [ pkgs.unstable.archipelago ];
     nativeBuildInputs = [ pkgs.makeWrapper ];
     postBuild = ''
@@ -20,28 +20,18 @@ let
     '';
   };
 
-  poptracker =
-    let
-      poptracker-wrapped = pkgs.symlinkJoin {
-        name = "poptracker-wrapped";
-        paths = [ pkgs.unstable.poptracker ];
-        nativeBuildInputs = [ pkgs.makeWrapper ];
-        postBuild = ''
-          wrapProgram $out/bin/poptracker \
-            --chdir ${dir}/poptracker \
-        '';
-        # --set SDL_VIDEODRIVER wayland \
-        # --set QT_SCALE_FACTOR 2 \
-        # --set GDK_SCALE 2
-      };
-
-      poptracker-scaled = pkgs.writeShellScriptBin "poptracker" ''
-        exec ${pkgs.gamescope}/bin/gamescope \
-          -w 900 -h 600 -W 1800 -H 1200 -F nearest -- \
-          ${poptracker-wrapped}/bin/poptracker "$@"
-      '';
-    in
-    poptracker-scaled;
+  poptracker = pkgs.symlinkJoin {
+    name = "poptracker-wrapped";
+    paths = [ pkgs.unstable.poptracker ];
+    nativeBuildInputs = [ pkgs.makeWrapper ];
+    postBuild = ''
+      wrapProgram $out/bin/poptracker \
+        --chdir ${dir}/poptracker \
+    '';
+    # --set SDL_VIDEODRIVER wayland \
+    # --set QT_SCALE_FACTOR 2 \
+    # --set GDK_SCALE 2
+  };
 in
 {
   imports = [
