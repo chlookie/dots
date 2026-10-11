@@ -94,6 +94,13 @@
           inherit versioning;
         };
 
+        # The archipelago module already sets up everything else for us
+        "Archipelago" = {
+          devices = [
+            "coffee"
+          ];
+        };
+
         # The thunderbird module already sets up everything else for us
         # "Thunderbird" = {
         #   devices = [

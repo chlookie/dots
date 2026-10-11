@@ -52,4 +52,9 @@ in
 
     pkgs.olympus # Cross-platform GUI Everest installer and Celeste mod manager.
   ];
+
+  services.syncthing.settings.folders."Archipelago" = {
+    id = "archi-pelag";
+    path = dir;
+  };
 }
