@@ -21,7 +21,6 @@
     profiles.os.pc
     profiles.os.wifi
     profiles.os.gaming.base
-    profiles.os.gaming.base
   ];
 
   wallpaper.image = inputs.wallpapers.dynamic."treeAndShore";

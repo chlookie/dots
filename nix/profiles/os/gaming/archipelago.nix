@@ -36,7 +36,6 @@ in
 {
   imports = [
     profiles.os.gaming.base
-    profiles.os.gaming.emulation
 
     (mkHomeSymlink {
       xdgDir = "data";
@@ -46,10 +45,8 @@ in
   ];
 
   environment.systemPackages = [
-    poptracker # Cool tracker
     archipelago # The archipelago launcher
-
-    pkgs.olympus # Cross-platform GUI Everest installer and Celeste mod manager.
+    poptracker # Cool visual tracker
   ];
 
   services.syncthing.settings.folders."Archipelago" = {
