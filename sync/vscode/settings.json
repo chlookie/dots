@@ -1256,7 +1256,8 @@
 		"material-icon-theme.folders.color",
 		"workbench.colorCustomizations",
 		"window.autoDetectColorScheme",
-		"editor.formatOnSave"
+		"editor.formatOnSave",
+		"breadcrumbs.enabled"
 	],
 	"workbench.startupEditor": "newUntitledFile",
 	"github.copilot.chat.editor.temporalContext.enabled": true,
@@ -1301,5 +1302,4 @@
 		"editor.formatOnSave": false
 	},
 	"diffEditor.renderSideBySide": false,
-	"breadcrumbs.enabled": false,
 }
