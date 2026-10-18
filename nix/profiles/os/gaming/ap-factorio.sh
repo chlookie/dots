@@ -40,10 +40,10 @@ fi
 # ---- launcher mode ----
 AP_RUN=$PWD
 
-if ! compgen -G "$AP_RUN/mods/AP_*.zip" > /dev/null; then
-  echo "No ./mods/AP_*.zip found in $AP_RUN" >&2
-  exit 1
-fi
+# if ! compgen -G "$AP_RUN/mods/AP_*.zip" > /dev/null; then
+#   echo "No ./mods/AP_*.zip found in $AP_RUN" >&2
+#   exit 1
+# fi
 
 AP_TMP=$(mktemp -d)
 trap 'rm -rf "$AP_TMP"' EXIT
