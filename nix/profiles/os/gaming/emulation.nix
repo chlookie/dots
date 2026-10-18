@@ -17,6 +17,11 @@ in
       target = "steam-rom-manager/userData";
       destination = "/stuff/games/emu/steamRomManager/userData";
     })
+
+    (lib2.nixos.mkSyncedPath {
+      target = "~/.config/snes9x";
+      syncName = "snes9x";
+    })
   ];
 
   # Only include light emulators; heavy ones go in ./emulation2.nix
