@@ -37,6 +37,8 @@ in
   imports = [
     profiles.os.gaming.base
 
+    ./factorio.nix
+
     (mkHomeSymlink {
       xdgDir = "data";
       target = "Archipelago";

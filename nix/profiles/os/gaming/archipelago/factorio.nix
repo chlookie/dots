@@ -14,7 +14,7 @@ let
       #bash
 
       RUN_DIR=$PWD
-      echo $RUN_DIR
+      echo "$RUN_DIR"
 
       # The archipelago factorio client runs this script and passes arguments we need to replace
       args=()
