@@ -47,6 +47,8 @@ in
   environment.systemPackages = [
     archipelago # The archipelago launcher
     poptracker # Cool visual tracker
+
+    pkgs.factorio-headless # The factorio server
   ];
 
   services.syncthing.settings.folders."Archipelago" = {
