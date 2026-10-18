@@ -42,7 +42,7 @@ let
       pkgs.gnused
     ];
     text = ''
-      FDATA=${pkgs.factorio-headless}/share/factorio/data
+      FDATA=${pkgs.unstable.factorio-headless}/share/factorio/data
     ''
     + builtins.readFile ./ap-factorio.sh;
   };
