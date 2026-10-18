@@ -14,7 +14,6 @@ let
       #bash
 
       RUN_DIR=$PWD
-      echo "$RUN_DIR"
 
       # The archipelago factorio client runs this script and passes arguments we need to replace
       args=()
@@ -40,7 +39,7 @@ let
       use-system-read-write-data-directories=false
       EOF
 
-      factorio --config "$TMP/factorio.ini" --mod-directory "$RUN_DIR/mods" "$${args[@]}"
+      factorio --config "$TMP/factorio.ini" --mod-directory "$RUN_DIR/mods" "''${args[@]}"
     '';
   };
 in
