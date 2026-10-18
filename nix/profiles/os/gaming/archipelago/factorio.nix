@@ -27,19 +27,19 @@ let
         esac
       done
 
-      TMP=$(mktemp -d)
-      trap 'rm -rf "$TMP"' EXIT
+      DATA_DIR=$RUN_DIR/data
+      CFG_FILE=$DATA_DIR/factorio.ini
 
-      cat > "$TMP/factorio.ini" <<EOF
+      cat > "$CFG_FILE" <<EOF
       [path]
       read-data=${factorioData}
-      write-data=$RUN_DIR/data
+      write-data=$DATA_DIR
 
       [other]
       use-system-read-write-data-directories=false
       EOF
 
-      factorio --config "$TMP/factorio.ini" --mod-directory "$RUN_DIR/mods" "''${args[@]}"
+      exec factorio --config "$CFG_FILE" --mod-directory "$RUN_DIR/mods" "''${args[@]}"
     '';
   };
 in
