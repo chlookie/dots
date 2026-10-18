@@ -32,20 +32,6 @@ let
     # --set QT_SCALE_FACTOR 2 \
     # --set GDK_SCALE 2
   };
-
-  ap-factorio = pkgs.writeShellApplication {
-    name = "ap-factorio";
-    runtimeInputs = [
-      pkgs.factorio-headless
-      pkgs.archipelago
-      pkgs.coreutils
-      pkgs.gnused
-    ];
-    text = ''
-      FDATA=${pkgs.unstable.factorio-headless}/share/factorio/data
-    ''
-    + builtins.readFile ./ap-factorio.sh;
-  };
 in
 {
   imports = [
@@ -61,9 +47,6 @@ in
   environment.systemPackages = [
     archipelago # The archipelago launcher
     poptracker # Cool visual tracker
-
-    # pkgs.factorio-headless # The factorio server
-    ap-factorio
   ];
 
   services.syncthing.settings.folders."Archipelago" = {
