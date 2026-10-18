@@ -33,7 +33,7 @@ let
       cat > "$TMP/factorio.ini" <<EOF
       [path]
       read-data=${factorioData}
-      write-data=$RUN_DIR/factorio-write-data
+      write-data=$RUN_DIR/data
 
       [other]
       use-system-read-write-data-directories=false
