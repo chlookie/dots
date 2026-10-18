@@ -19,7 +19,6 @@ if [[ -n "${AP_FACTORIO_SHIM:-}" ]]; then
     create)
       [[ -f "$AP_RUN/save.zip" ]] && exit 0
       args+=(--create "$AP_RUN/save.zip")
-      [[ -n "${SEED:-}" ]] && args+=(--map-gen-seed "$SEED")
       ;;
     start) args+=(--start-server "$AP_RUN/save.zip") ;;
   esac
@@ -40,12 +39,6 @@ fi
 
 # ---- launcher mode ----
 AP_RUN=$PWD
-if [[ -f .env ]]; then
-  set -a
-  # shellcheck disable=SC1091
-  source .env
-  set +a
-fi
 
 if ! compgen -G "$AP_RUN/mods/AP_*.zip" > /dev/null; then
   echo "No ./mods/AP_*.zip found in $AP_RUN" >&2
