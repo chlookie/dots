@@ -14,6 +14,18 @@ let
       #bash
       RUN_DIR=$PWD
 
+      # The archipelago factorio client runs this script and passes arguments we need to replace
+      args=()
+      while (($#)); do
+        case "$1" in
+          --config) shift 2 ;;
+          --mod-directory) shift 2 ;;
+          --create) args+=(--create "$RUN_DIR/save.zip"); shift 2 ;;
+          --start-server) args+=(--start-server "$RUN_DIR/save.zip"); shift 2 ;;
+          *) args+=("$1"); shift ;;
+        esac
+      done
+
       # Check for Archipelago mod to prevent running in the wrong dir accidentally
       set -- "$RUN_DIR"/mods/AP*.zip
       if [ -e "$1" ]; then
@@ -27,18 +39,6 @@ let
       if [ ! -f "$RUN_DIR/mods/mod-list.json" ]; then
         printf '%s\n' '{"mods":[{"name":"base","enabled":true},{"name":"elevated-rails","enabled":false},{"name":"quality","enabled":false},{"name":"space-age","enabled":false}]}' > "$RUN_DIR/mods/mod-list.json"
       fi
-
-      # The archipelago factorio client runs this script and passes arguments we need to replace
-      args=()
-      while (($#)); do
-        case "$1" in
-          --config) shift 2 ;;
-          --mod-directory) shift 2 ;;
-          --create) args+=(--create "$RUN_DIR/save.zip"); shift 2 ;;
-          --start-server) args+=(--start-server "$RUN_DIR/save.zip"); shift 2 ;;
-          *) args+=("$1"); shift ;;
-        esac
-      done
 
       DATA_DIR=$RUN_DIR/data
       CFG_FILE=$DATA_DIR/factorio.ini
