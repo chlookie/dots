@@ -20,7 +20,7 @@ let
       fi
 
       if [ ! -f mods/mod-list.json ]; then
-          cat > mods/mod-list.json <<'EOF'
+        cat > mods/mod-list.json <<'EOF'
       {
         "mods":
         [
