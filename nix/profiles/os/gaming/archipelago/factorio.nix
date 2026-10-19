@@ -31,7 +31,7 @@ let
       CFG_FILE=$DATA_DIR/factorio.ini
 
       mkdir --parents "$DATA_DIR"
-      mkdir --parents "$CFG_FILE"
+      mkdir --parents "$(dirname "$CFG_FILE")"
 
       cat > "$CFG_FILE" <<EOF
       [path]
