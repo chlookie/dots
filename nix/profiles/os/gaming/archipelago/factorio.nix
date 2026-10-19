@@ -1,11 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 
 let
   factorio = pkgs.unstable.factorio-headless;
   factorioData = "${factorio}/share/factorio/data";
 
   factorioWrapped = pkgs.writeShellApplication {
-    name = "archipelago-factorio";
+    name = "archipelago-factorio-server-wrapped";
     runtimeInputs = [
       factorio
     ];
@@ -47,9 +47,12 @@ let
   };
 in
 {
-
   environment.systemPackages = [
     factorio
     factorioWrapped
   ];
+
+  home-manager.users.${user}.home.shellAliases = {
+    ap-factorio = ''archipelago "Factorio Client" -- --nogui'';
+  };
 }

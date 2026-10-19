@@ -2,6 +2,7 @@
   pkgs,
   profiles,
   lib2,
+  user,
   ...
 }:
 
@@ -54,5 +55,10 @@ in
   services.syncthing.settings.folders."Archipelago" = {
     id = "archi-pelag";
     path = dir;
+  };
+
+  home-manager.users.${user}.home.shellAliases = {
+    ap-gen-world = ''archipelago "Generate" --'';
+    ap-gen-templates = ''archipelago "Generate Template Options" -- --skip_open_folder'';
   };
 }
