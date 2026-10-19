@@ -30,6 +30,9 @@ let
       DATA_DIR=$RUN_DIR/data
       CFG_FILE=$DATA_DIR/factorio.ini
 
+      mkdir --parents "$DATA_DIR"
+      mkdir --parents "$CFG_FILE"
+
       cat > "$CFG_FILE" <<EOF
       [path]
       read-data=${factorioData}
