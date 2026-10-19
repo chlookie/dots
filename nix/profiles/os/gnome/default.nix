@@ -199,7 +199,7 @@ in
     ./extensions/blurMyShell.nix
     ./extensions/clipboardIndicator.nix
     ./extensions/gsconnect.nix
-    ./extensions/roundedCorners.nix
+    # ./extensions/roundedCorners.nix # crashes firefox sometimes and ryujinx
     ./extensions/systemMonitor.nix
     ./extensions/mediaControls.nix
     ./extensions/burnMyWindows.nix

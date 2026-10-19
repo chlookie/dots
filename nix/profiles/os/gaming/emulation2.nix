@@ -47,11 +47,10 @@ in
   environment.systemPackages = [
     # Emulators
     pkgs.custom.yuzu # Switch
+    # pkgs.custom.suyu # Switch (fork of yuzu)
     pkgs.ryubing # Switch (fork of ryujinx)
-    pkgs.cemu # Wii U
 
-    # Emulators (unused)
-    # pkgs.custom.sudachi # Switch (fork of yuzu)
+    pkgs.cemu # Wii U
   ];
 
 }

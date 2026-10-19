@@ -11,9 +11,43 @@ let
     ];
 
     text = ''
-      #bash
-
       RUN_DIR=$PWD
+
+      set -- "$RUN_DIR"/mods/AP*.zip
+      if [ ! -e "$1" ]; then
+        echo "No AP mod found in mods/"
+        exit 1
+      fi
+
+      if [ ! -f mods/mod-list.json ]; then
+          cat > mods/mod-list.json <<'EOF'
+      {
+        "mods":
+        [
+
+          {
+            "name": "base",
+            "enabled": true
+          },
+
+          {
+            "name": "elevated-rails",
+            "enabled": false
+          },
+
+          {
+            "name": "quality",
+            "enabled": false
+          },
+
+          {
+            "name": "space-age",
+            "enabled": false
+          }
+        ]
+      }
+      EOF
+      fi
 
       # The archipelago factorio client runs this script and passes arguments we need to replace
       args=()
