@@ -11,42 +11,21 @@ let
     ];
 
     text = ''
+      #bash
       RUN_DIR=$PWD
 
+      # Check for Archipelago mod to prevent running in the wrong dir accidentally
       set -- "$RUN_DIR"/mods/AP*.zip
-      if [ ! -e "$1" ]; then
-        echo "No AP mod found in mods/"
+      if [ -e "$1" ]; then
+        echo "Found Archipelago mod $1"
+      else
+        echo "No Archipelago mod found in mods/"
         exit 1
       fi
 
-      if [ ! -f mods/mod-list.json ]; then
-        cat > mods/mod-list.json <<'EOF'
-      {
-        "mods":
-        [
-
-          {
-            "name": "base",
-            "enabled": true
-          },
-
-          {
-            "name": "elevated-rails",
-            "enabled": false
-          },
-
-          {
-            "name": "quality",
-            "enabled": false
-          },
-
-          {
-            "name": "space-age",
-            "enabled": false
-          }
-        ]
-      }
-      EOF
+      # Add mod list if missing
+      if [ ! -f "$RUN_DIR/mods/mod-list.json" ]; then
+        printf '%s\n' '{"mods":[{"name":"base","enabled":true},{"name":"elevated-rails","enabled":false},{"name":"quality","enabled":false},{"name":"space-age","enabled":false}]}' > "$RUN_DIR/mods/mod-list.json"
       fi
 
       # The archipelago factorio client runs this script and passes arguments we need to replace
