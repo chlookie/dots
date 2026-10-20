@@ -14,11 +14,12 @@ in
   # Some extra instances of pkgs, so that my nixosConfigurations can pin packages more easily.
   # Example usage:
   # ```
-  #   packages = [ pkgs.unstable.firefox ];
+  #   packages = [ pkgs."unstable".firefox ];
   # ```
   "stable" = mkPkgsOverlay inputs.nixpkgs-stable;
   "unstable" = mkPkgsOverlay inputs.nixpkgs-unstable;
   "pinned" = mkPkgsOverlay inputs.nixpkgs-pinned;
+  "26-05" = mkPkgsOverlay inputs.nixpkgs-26-05;
   "25-11" = mkPkgsOverlay inputs.nixpkgs-25-11;
   "25-05" = mkPkgsOverlay inputs.nixpkgs-25-05;
 

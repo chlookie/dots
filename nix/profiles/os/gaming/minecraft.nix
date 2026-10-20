@@ -22,7 +22,7 @@
   environment.systemPackages = [
     (pkgs.symlinkJoin {
       name = "prismlauncher";
-      paths = [ pkgs.unstable.prismlauncher ];
+      paths = [ pkgs."unstable".prismlauncher ];
       buildInputs = [ pkgs.makeWrapper ];
       postBuild = ''
         wrapProgram $out/bin/prismlauncher \

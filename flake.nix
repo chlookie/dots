@@ -92,10 +92,11 @@
 
     # ----- nixpkgs -------------------------------------------------------------------------------
     "nixpkgs".follows = "nixpkgs-stable";
-    "nixpkgs-stable".follows = "nixpkgs-25-11";
+    "nixpkgs-stable".follows = "nixpkgs-25-11"; # TODO: Update stable version
     "nixpkgs-unstable".url = "github:nixos/nixpkgs/nixos-unstable";
     "nixpkgs-pinned".url = "github:nixos/nixpkgs/fd487183437963a59ba763c0cc4f27e3447dd6dd";
 
+    "nixpkgs-26-05".url = "github:nixos/nixpkgs/nixos-26.05";
     "nixpkgs-25-11".url = "github:nixos/nixpkgs/nixos-25.11";
     "nixpkgs-25-05".url = "github:nixos/nixpkgs/nixos-25.05";
 

@@ -46,14 +46,14 @@
     pkgs.gnome-obfuscate
 
     # pkgs.audacity
-    pkgs.unstable.audacity_4
+    pkgs."unstable".audacity_4
   ];
 
   # Won't start past login screen
   # TODO: Maybe try again after 25.11 releases
   # stylix = {
   #   enable = true;
-  #   base16Scheme = "${pkgs.unstable.base16-schemes}/share/themes/brushtrees-dark.yaml";
+  #   base16Scheme = "${pkgs."unstable".base16-schemes}/share/themes/brushtrees-dark.yaml";
   #   polarity = "dark";
   #   autoEnable = false;
 

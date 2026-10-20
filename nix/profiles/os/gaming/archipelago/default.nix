@@ -13,7 +13,7 @@ let
 
   archipelago = pkgs.symlinkJoin {
     name = "archipelago-wrapped";
-    paths = [ pkgs.unstable.archipelago ];
+    paths = [ pkgs."unstable".archipelago ];
     nativeBuildInputs = [ pkgs.makeWrapper ];
     postBuild = ''
       wrapProgram $out/bin/archipelago \
@@ -23,7 +23,7 @@ let
 
   poptracker = pkgs.symlinkJoin {
     name = "poptracker-wrapped";
-    paths = [ pkgs.unstable.poptracker ];
+    paths = [ pkgs."unstable".poptracker ];
     nativeBuildInputs = [ pkgs.makeWrapper ];
     postBuild = ''
       wrapProgram $out/bin/poptracker \
