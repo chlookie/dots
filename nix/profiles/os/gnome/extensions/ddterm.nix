@@ -15,8 +15,8 @@
     APP_TERMINAL = lib.mkDefault "gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell/Extensions/ddterm --method com.github.amezin.ddterm.Extension.Toggle";
   };
 
-  environment.systemPackages = with pkgs; [
-    gnomeExtensions.ddterm
+  environment.systemPackages = [
+    pkgs."26-05".gnomeExtensions.ddterm
   ];
 
   home-manager.users.${user} =
