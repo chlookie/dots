@@ -1,14 +1,7 @@
 { config, ... }:
 
 {
-  # Fix eduroam certificate
-  age.secrets."wifi/eduroam-ca.pem" = {
-    # Required by NetworkManager otherwise it won't work
-    owner = "root";
-    group = "root";
-    mode = "755";
-  };
-
+  # TODO: Push secrets/ you dummy and then delete the eduroam + other removed wifi stuff
   networking.networkmanager = {
     # Enable networking with NetworkManager
     enable = true;
@@ -68,63 +61,6 @@
             auth-alg = "open";
             key-mgmt = "wpa-psk";
             psk = "$DOMAINE_DES_FLEURS_DE_JARDIN_PSK";
-          };
-        };
-
-        "AU Eduroam" = {
-          "802-1x" = {
-            ca-cert = config.age.secrets."wifi/eduroam-ca.pem".path;
-            eap = "peap;";
-            identity = "$EDUROAM_IDENTITY";
-            password = "$EDUROAM_PASSWORD";
-            phase1-peapver = "1";
-            phase2-auth = "mschapv2";
-          };
-          connection = {
-            id = "eduroam";
-            type = "wifi";
-            uuid = "2203ce9e-afc1-4e35-9a0c-92fa749bb33a";
-          };
-          ipv4 = {
-            method = "auto";
-          };
-          ipv6 = {
-            addr-gen-mode = "stable-privacy";
-            method = "auto";
-          };
-          proxy = { };
-          wifi = {
-            mode = "infrastructure";
-            ssid = "eduroam";
-          };
-          wifi-security = {
-            key-mgmt = "wpa-eap";
-          };
-        };
-
-        "MichiZuzu" = {
-          connection = {
-            id = "Wifi26E0";
-            interface-name = "wlp0s20f3";
-            type = "wifi";
-            uuid = "9c19ca26-30af-4d64-9889-459b4f1e8646";
-          };
-          ipv4 = {
-            method = "auto";
-          };
-          ipv6 = {
-            addr-gen-mode = "default";
-            method = "auto";
-          };
-          proxy = { };
-          wifi = {
-            mode = "infrastructure";
-            ssid = "Wifi26E0";
-          };
-          wifi-security = {
-            auth-alg = "open";
-            key-mgmt = "wpa-psk";
-            psk = "$MICHI_PSK";
           };
         };
       };
