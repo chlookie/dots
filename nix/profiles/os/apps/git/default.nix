@@ -44,6 +44,9 @@ in
 
         # Automatically setup remote when pushing on a repo that was cloned (iirc?)
         push.autoSetupRemote = true;
+        # Push submodule commits first, and refuse to push if that fails
+        # (prevents pushing a commit that points to an unpushed submodule commit)
+        push.recurseSubmodules = "on-demand";
 
         # Force using the CMD credentials prompt instead of a window
         credential.modalprompt = false;

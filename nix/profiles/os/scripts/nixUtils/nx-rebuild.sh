@@ -18,9 +18,28 @@ sudo echo -e "${INFO}Running as superuser${RESET}"
 # cd to our config dir
 pushd $DOTS 1>/dev/null
 
+# Cleanup runs on exit no matter what, `set -e` exits the script as soon as something fails
+cleanup() {
+	status=$?
+
+	# Revert staging in case an error happened
+	git restore --staged --quiet . || true
+
+	# Back to where we were
+	popd 1>/dev/null
+
+	if [[ $status -eq 0 ]]; then
+		echo -e "${SUCCESS}DONE!${RESET}"
+	else
+		echo -e "${ERROR}Rebuild cancelled${RESET}"
+	fi
+}
+trap cleanup EXIT
+
 # Pull if needed
 if [[ $1 == "--pull" ]]; then
 	git pull
+	shift 1
 fi
 
 rebuild() {
@@ -77,20 +96,11 @@ rebuild() {
 
 	echo -e "${INFO}Pushing...${RESET}"
 	# Git push is stoopid and writes everything to stderr
-	git push &>/dev/null
+	# (`--recurse-submodules=on-demand` forces the secrets submodule to push first)
+	if ! git push --recurse-submodules=on-demand &>/dev/null; then
+		echo -e "${ERROR}Push failed! (Is ./secrets pushable?)${RESET}"
+		return 1
+	fi
 }
 
 rebuild $@
-status=$?
-
-# Revert staging in case an error happened
-git restore --staged --quiet . || true
-
-# Back to where we were
-popd 1>/dev/null
-
-if [[ $status -eq 0 ]]; then
-	echo -e "${SUCCESS}DONE!${RESET}"
-else
-	echo -e "${ERROR}Rebuild cancelled${RESET}"
-fi
