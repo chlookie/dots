@@ -47,7 +47,7 @@ in
   environment.systemPackages = [
     # Emulators
     pkgs.custom.yuzu # Switch
-    # pkgs.custom.suyu # Switch (fork of yuzu)
+    pkgs.unstable.eden # Switch (fork of yuzu)
     pkgs.ryubing # Switch (fork of ryujinx)
 
     pkgs.cemu # Wii U

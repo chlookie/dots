@@ -1257,7 +1257,9 @@
 		"workbench.colorCustomizations",
 		"window.autoDetectColorScheme",
 		"editor.formatOnSave",
-		"breadcrumbs.enabled"
+		"breadcrumbs.enabled",
+		"workbench.productIconTheme",
+		"workbench.iconTheme"
 	],
 	"workbench.startupEditor": "newUntitledFile",
 	"github.copilot.chat.editor.temporalContext.enabled": true,
