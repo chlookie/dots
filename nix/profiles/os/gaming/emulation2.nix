@@ -14,13 +14,19 @@ in
 
     (mkHomeSymlink {
       xdgDir = "data";
-      target = "sudachi";
+      target = "yuzu";
       destination = "/stuff/games/emu/switch/yuzu";
     })
 
+    # (mkHomeSymlink {
+    #   xdgDir = "data";
+    #   target = "sudachi";
+    #   destination = "/stuff/games/emu/switch/yuzu";
+    # })
+
     (mkHomeSymlink {
       xdgDir = "data";
-      target = "yuzu";
+      target = "eden";
       destination = "/stuff/games/emu/switch/yuzu";
     })
 
