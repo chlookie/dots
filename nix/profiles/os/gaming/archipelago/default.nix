@@ -71,6 +71,7 @@ in
 
   home-manager.users.${user}.home.shellAliases = {
     ap-gen-world = ''archipelago "Generate" --'';
+    ap-host = ''archipelago "Host" --'';
     ap-gen-templates = ''archipelago "Generate Template Options" -- --skip_open_folder'';
   };
 }
