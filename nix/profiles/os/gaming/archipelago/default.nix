@@ -11,15 +11,27 @@ let
 
   dir = "/stuff/games/archipelago";
 
-  archipelago = pkgs.symlinkJoin {
-    name = "archipelago-wrapped";
-    paths = [ pkgs."unstable".archipelago ];
-    nativeBuildInputs = [ pkgs.makeWrapper ];
-    postBuild = ''
+  # archipelago = pkgs.symlinkJoin {
+  #   name = "archipelago-wrapped";
+  #   paths = [ pkgs."unstable".archipelago ];
+  #   nativeBuildInputs = [ pkgs.makeWrapper ];
+  #   postBuild = ''
+  #     wrapProgram $out/bin/archipelago \
+  #       --set KIVY_METRICS_DENSITY 1.5
+  #   '';
+  # };
+
+  archipelago = pkgs."unstable".archipelago.overrideAttrs (old: {
+    postInstall = (old.postInstall or "") + ''
+      # custom default options
+      chmod -R u+w $out/lib/opt/Archipelago/data
+      install -Dm644 ${./defaultTemplate.yaml} $out/lib/opt/Archipelago/data/options.yaml
+
+      # UI scaling
       wrapProgram $out/bin/archipelago \
-        --set KIVY_METRICS_DENSITY 1.5
+        --set-default KIVY_METRICS_DENSITY 1.5
     '';
-  };
+  });
 
   poptracker = pkgs.symlinkJoin {
     name = "poptracker-wrapped";
