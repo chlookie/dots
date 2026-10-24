@@ -10,7 +10,7 @@ let
 in
 
 let
-  beets = pkgs."unstable".beets.override {
+  beets = pkgs.unstable.beets.override {
     # pluginOverrides = {
     #   fetchartist = {
     #     enable = true;

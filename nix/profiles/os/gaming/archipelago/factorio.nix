@@ -1,7 +1,7 @@
 { pkgs, user, ... }:
 
 let
-  factorio = pkgs."unstable".factorio-headless;
+  factorio = pkgs.unstable.factorio-headless;
   factorioData = "${factorio}/share/factorio/data";
 
   factorioWrapped = pkgs.writeShellApplication {

@@ -21,7 +21,7 @@ let
   heicConverter = file: pkgs.callPackage ./heic-converter.nix { inherit file; };
   cfg = config.wallpaper;
   sanitizedImage = sanitizePath cfg.image;
-  wallutils = pkgs."unstable".wallutils;
+  wallutils = pkgs.unstable.wallutils;
 in
 {
   options.wallpaper = {

@@ -14,7 +14,7 @@ in
   # Some extra instances of pkgs, so that my nixosConfigurations can pin packages more easily.
   # Example usage:
   # ```
-  #   packages = [ pkgs."unstable".firefox ];
+  #   packages = [ pkgs.unstable.firefox ];
   # ```
   "stable" = mkPkgsOverlay inputs.nixpkgs-stable;
   "unstable" = mkPkgsOverlay inputs.nixpkgs-unstable;

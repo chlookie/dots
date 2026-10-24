@@ -1,12 +1,12 @@
 {
   pkgs,
-  config,
   user,
   ...
 }:
 {
-  environment.systemPackages = with pkgs; [
-    nicotine-plus # A client for the Soulseek peer-to-peer file sharing network.
+  environment.systemPackages = [
+    pkgs.nicotine-plus # A client for the Soulseek peer-to-peer file sharing network.
+    pkgs.unstable.sockseek # New name for slskd-batchdl, a utility, downloader and alternative client for soulseek
   ];
 
   networking.firewall = {
